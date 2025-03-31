@@ -46,6 +46,8 @@ function _tide_item_vcs_jj --description 'Write out the jj prompt'
 end
 
 function _tide_item_vcs_git
+   set_color $tide_git_color_branch | read -l _tide_location_color
+
     if git branch --show-current 2>/dev/null | string shorten -"$tide_git_truncation_strategy"m$tide_git_truncation_length | read -l location
         git rev-parse --git-dir --is-inside-git-dir | read -fL gdir in_gdir
         set location $_tide_location_color$location
