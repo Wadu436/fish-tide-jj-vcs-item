@@ -15,9 +15,9 @@ end
 
 function _tide_item_vcs_jj --description 'Write out the jj prompt'
     # Generate prompt
-    _tide_print_item vcs (jj log --ignore-working-copy --no-graph --color always -r @ -T '
+    _tide_print_item vcs (set_color white) (jj log --ignore-working-copy --no-graph --color always -r @ -T '
         surround(
-            " (",
+            "(",
             ")",
             separate(
                 " ",
@@ -32,7 +32,7 @@ function _tide_item_vcs_jj --description 'Write out the jj prompt'
                             description.first_line().substr(0, 23) ++ "…"
                         )
                     ),
-                    "(no description set)"
+                    "(no description)"
                 ),
                 change_id.shortest(),
                 commit_id.shortest(),
